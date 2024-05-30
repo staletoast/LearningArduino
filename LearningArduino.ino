@@ -1,13 +1,21 @@
-static unsigned int myNum = 8;
+#define LED_PIN 13
+
+class Led
+{
+private:
+  byte pin
+public:
+  Led(byte pin)
+};
 
 void setup() {
-pinMode(myNum, OUTPUT);
+pinMode(LED_PIN, OUTPUT);
 
 }
 
 void loop() {
-digitalWrite(myNum, false);
+digitalWrite(LED_PIN, true);
 delay(1000);
-digitalWrite(myNum, HIGH);
+digitalWrite(LED_PIN, false);
 delay(1000);
 }
