@@ -5,12 +5,28 @@ class Led
 private:
   byte _pin;
 public:
-Led () {} //do not use
+  Led () {} //do not use
+  
   Led(byte pin)
-    {
+  {
       //this->pin = pin;
       _pin = pin;
-    }
+  }
+
+  void init()
+  {
+    pinmode(pin, OUTPUT);
+  }
+
+  void on()
+  {
+    digitalWrite(pin, HIGH)
+  }
+
+  void off()
+  {
+  digitalWrite(pin, LOW)
+  }
 };
 
 void setup() {
