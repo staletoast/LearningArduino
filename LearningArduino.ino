@@ -3,9 +3,14 @@
 class Led
 {
 private:
-  byte pin
+  byte _pin;
 public:
+Led () {} //do not use
   Led(byte pin)
+    {
+      //this->pin = pin;
+      _pin = pin;
+    }
 };
 
 void setup() {
