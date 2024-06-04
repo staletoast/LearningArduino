@@ -15,28 +15,41 @@ public:
 
   void init()
   {
-    pinmode(pin, OUTPUT);
+    pinMode(_pin, OUTPUT);
+  }
+
+  void init(byte defaultState)
+  {
+    init();
+    if (defaultState == HIGH) {
+      on();
+    }
+    else {
+      off();
+    }
   }
 
   void on()
   {
-    digitalWrite(pin, HIGH)
+    digitalWrite(_pin, HIGH);
   }
 
   void off()
   {
-  digitalWrite(pin, LOW)
+  digitalWrite(_pin, LOW);
   }
 };
 
-void setup() {
-pinMode(LED_PIN, OUTPUT);
+//Led myled; - default constructor
+Led myled(LED_PIN);
 
+void setup() {
+  myled.init();
 }
 
 void loop() {
-digitalWrite(LED_PIN, true);
-delay(1000);
-digitalWrite(LED_PIN, false);
-delay(1000);
+  myled.on();
+  delay(100);
+  myled.off();
+  delay(1000);
 }
