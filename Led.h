@@ -1,44 +1,21 @@
 #ifndef LED_H
 #define LED_H
 
+#include <Arduino.h>
+
 class Led
 {
 private:
   byte _pin;
 public:
   Led () {} //do not use
-  
-  Led(byte pin)
-  {
-      //this->pin = pin;
-      _pin = pin;
-  }
+  Led(byte pin);
 
-  void init()
-  {
-    pinMode(_pin, OUTPUT);
-  }
+  void init(); //init the pin for the LED //call this in setup()
+  void init(byte defaultState);
 
-  void init(byte defaultState)
-  {
-    init();
-    if (defaultState == HIGH) {
-      on();
-    }
-    else {
-      off();
-    }
-  }
-
-  void on()
-  {
-    digitalWrite(_pin, HIGH);
-  }
-
-  void off()
-  {
-  digitalWrite(_pin, LOW);
-  }
+  void on(); //power on LED 
+  void off(); //power off LED
 };
 
 #endif
